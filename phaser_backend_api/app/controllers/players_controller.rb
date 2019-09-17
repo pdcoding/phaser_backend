@@ -15,6 +15,7 @@ class PlayersController < ApplicationController
 
   # POST /players
   def create
+    puts "here is #{player_params}"
     @player = Player.new(player_params)
 
     if @player.save
@@ -46,6 +47,6 @@ class PlayersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def player_params
-      params.require(:player).permit(:name, :time-elapsed)
+      params.require(:player).permit(:name, :time, :scoreboard_id)
     end
 end
